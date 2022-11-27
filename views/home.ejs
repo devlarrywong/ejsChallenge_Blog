@@ -1,5 +1,5 @@
-<%- include('partials/header') -%> <% for(i = 0; i < postList.length; i++){ %>
-<% console.log(postList[i].title) %> <% } %>
+<%- include('partials/header') -%> <% postList.forEach((post) => {%> <%
+console.log(post.title)%> <%})%>
 
 <h1>Home</h1>
 <p><%= homeStartContent %></p>
