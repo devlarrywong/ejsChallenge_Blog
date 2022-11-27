@@ -1,7 +1,9 @@
-<%- include('partials/header') -%> <% postList.forEach((post) => {%> <%
-console.log(post.title)%> <%})%>
+<%- include('partials/header') -%>
 
 <h1>Home</h1>
 <p><%= homeStartContent %></p>
 
-<%- include('partials/footer') -%>
+<% postList.forEach((post) => { %>
+<h1><%= post.title%></h1>
+<p><%= post.content%></p>
+<%})%> <%- include('partials/footer') -%>
