@@ -35,7 +35,9 @@ app.get('/compose', (req, res) => {
 });
 
 app.post('/compose', (req, res) => {
-  // console.log(req.body.postTitle);
+  // console.log(req.body);
+  const post = { title: req.body.postTitle, content: req.body.postBody };
+  console.log(post);
   if (res.statusCode === 200) {
     res.redirect('compose');
   } else {
