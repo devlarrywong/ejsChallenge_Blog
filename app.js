@@ -20,16 +20,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.render('home', { homeStartContent: homeStartingContent });
-  // console.log(postList);
+  res.render('home', {
+    postList: postList,
+    homeStartContent: homeStartingContent,
+  });
 });
 
 app.get('/about', (req, res) => {
-  res.render('about', { aboutContent: aboutContent });
+  res.render('about', { postList: postList, aboutContent: aboutContent });
 });
 
 app.get('/contact', (req, res) => {
-  res.render('contact', { contactContent: contactContent });
+  res.render('contact', { postList: postList, contactContent: contactContent });
 });
 
 app.get('/compose', (req, res) => {
@@ -37,9 +39,7 @@ app.get('/compose', (req, res) => {
 });
 
 app.post('/compose', (req, res) => {
-  // console.log(req.body);
   const post = { title: req.body.postTitle, content: req.body.postBody };
-  // console.log(post);
 
   if (res.statusCode === 200) {
     postList.push(post);
