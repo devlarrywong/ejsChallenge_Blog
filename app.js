@@ -59,15 +59,13 @@ app.get('/posts/:postName', (req, res, next) => {
     // console.log(storedTitle, requestedTitle);
 
     if (storedTitle === requestedTitle) {
-      console.log('match');
-    } else {
-      console.log('not match');
+      // console.log('match');
+      res.render('post', {
+        postName: post.title,
+        postBody: post.content,
+      });
     }
   });
-  // if (req.params.postName !== undefined) {
-  //   console.log('match');
-  //   next();
-  // }
 });
 
 app.listen(3000, function () {
