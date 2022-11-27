@@ -49,8 +49,20 @@ app.post('/compose', (req, res) => {
   }
 });
 
-app.get('/posts/:postName', (req, res) => {
+app.get('/posts/:postName', (req, res, next) => {
   console.log(req.params.postName);
+  const requestedTitle = req.params.postName;
+
+  postList.forEach((post) => {
+    const storedTitle = post.title;
+    if (storedTitle === requestedTitle) {
+      console.log('match');
+    }
+  });
+  // if (req.params.postName !== undefined) {
+  //   console.log('match');
+  //   next();
+  // }
 });
 
 app.listen(3000, function () {
