@@ -34,6 +34,15 @@ app.get('/compose', (req, res) => {
   res.render('compose');
 });
 
+app.post('/compose', (req, res) => {
+  // console.log(req.body.postTitle);
+  if (res.statusCode === 200) {
+    res.redirect('compose');
+  } else {
+    console.log('Error, please find the developer!');
+  }
+});
+
 app.listen(3000, function () {
   console.log('Server started on port 3000');
 });
